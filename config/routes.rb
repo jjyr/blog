@@ -1,4 +1,12 @@
 Blog::Application.routes.draw do
+  root to: 'posts#index'
+  
+  resources :tags ,only: [:index,:show]
+
+  resources :posts do
+    resources :comments,only: [:create,:destroy]
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
