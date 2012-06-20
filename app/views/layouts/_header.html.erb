@@ -11,6 +11,11 @@
         <li>
           <a href="<%= tags_path %>">Tags</a>
         </li>
+        <% if admin?%>
+          <li>
+            <%= link_to 'Logout',admin_path,method: :delete,class: "logout"%>
+          <li/>
+        <% end %>
       </ul>
     </div>
   </div>

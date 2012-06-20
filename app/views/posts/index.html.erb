@@ -1,20 +1,16 @@
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<%=render @posts%>
-</table>
+<div>
+<posts>
+  <ul>
+    <%=render @posts%>
+  </ul>
+</posts>
 <p>
  <%=will_paginate%>
 </p>
 
 <br />
 
-<%= link_to 'New Post', new_post_path %>
+<% if admin? %>
+  <%= link_to 'New Post', new_post_path %>
+<% end%>
+</div>

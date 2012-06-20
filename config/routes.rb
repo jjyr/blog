@@ -1,6 +1,10 @@
 Blog::Application.routes.draw do
   root to: 'posts#index'
-  
+
+  get 'admin',to: 'sessions#new'
+  match 'admin',via: :post,to: 'sessions#create'
+  match 'admin',via: :delete,to: 'sessions#destroy'
+
   resources :tags ,only: [:index,:show]
 
   resources :posts do

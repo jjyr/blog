@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  before_filter :check_role,only: [:new,:edit,:create,:update,:destroy]
+
   # GET /posts
   # GET /posts.json
   def index
@@ -13,10 +16,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments.paginate page: params[:page]
-
-    respond_to do |format|
-      format.html # show.html.erb
-    end
   end
 
   # GET /posts/new

@@ -1,22 +1,25 @@
-<p id="notice"><%= notice %></p>
+<%provide :title,@post.title%>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+<post>
+<div class="post-title">
+  <h1>
+    <%= @post.title %>
+  </h1>
+</div>
 
-<p>
-  <b>Body:</b>
+<div class="post-body">
   <%= @post.body %>
-</p>
-
-<hr/>
+</div>
+<span class="date"><%=format_date @post.created_at%></span>
+<% if admin? %>
+  <%= link_to 'Edit', edit_post_path(@post) %>
+<% end %>
+<post>
+<br />
+<hr />
 <%=render @comments%>
-<hr/>
 <p>
   <%= will_paginate @comments%>
 </p>
 <%=render 'comments/form'%>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>

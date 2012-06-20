@@ -1,7 +1,13 @@
-<h1><%=@tags.first.name%></h1>
-<table>
-<%= render @posts %>
-</table>
+<% provide(:title,tag_name = @tags.first.name)%>
+<div>
+<span class="tag-title"><%=tag_name%></span>
+<hr />
+<posts>
+  <ul>
+    <%= render @posts %>
+  </ul>
+</posts>
+</div>
 <p>
   <%=will_paginate%>
 </p>

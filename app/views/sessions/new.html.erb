@@ -1,0 +1,8 @@
+<h2>Login</h2>
+<%= form_for :session,method: :post,url: admin_path do |f|%>
+  <%= f.label :email %>
+  <%= f.text_field :email %><br />
+  <%= f.label :password %>
+  <%= f.password_field :password %><br />
+  <%= f.submit "登录"%>
+<% end%>

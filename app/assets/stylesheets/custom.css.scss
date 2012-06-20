@@ -1,1 +1,173 @@
 @import "bootstrap";
+
+.body-style{
+  background-image:url(background.png);
+}
+
+.logout{
+  margin-left: 550px;
+}
+
+#main{
+  .content{
+    background-color:white;
+    border:3px solid $grayLighter;
+    margin:-3px;
+  }
+
+  .statistic{
+    ul{
+      li{
+        margin-bottom:7px;
+        color:$green;
+      }
+    }
+
+    h3{
+      margin-top:10px;
+      color:$yellow;
+    }
+  }
+
+  .top{
+    ul{
+      li{
+        margin-bottom:15px;
+        a{
+          color:$pink;
+          font-size:20px;
+        }
+        color:$pink;
+      }
+    }
+
+    h3{
+      margin-top:10px;
+      color:$yellow;
+    }
+    margin-top: 50px;
+  }
+}
+
+.date{
+  float:right;
+  color:$purple;
+  margin-right:20px;
+  font-size:10px;
+}
+
+posts{
+  ul{
+    list-style:none;
+    margin-top:20px;
+  }
+
+  .post-title{
+    font-size:20px;
+    a{
+      color:$blue;
+    }
+  }
+
+  .post-body{
+    margin-top:10px;
+    color:$grayLight;
+  }
+}
+
+post{
+  .post-title{
+    h1{
+      color:$gray;
+      margin:10px auto auto 10px;
+    }
+  }
+
+  .post-body{
+    margin:20px 12px 20px 12px;
+  }
+}
+
+.comment-delete{
+  float:right;
+  margin-right:20px;
+  margin-top:10px;
+}
+
+comment{
+  .comment-main{
+    display:block;
+  }
+
+  hr{
+  }  
+
+  .comment-info{
+    margin-left:5px;
+
+    .comment-icon{
+      height:50px;
+      width:50px;
+    }
+
+    .comment-name{
+      display:block;
+      margin:3px;
+      width:50px;
+      word-break:break-all;
+      color:$orange;
+      font-size:xx-small;
+      float:left;
+    }
+  }
+
+  .comment-body{
+    .comment-content{
+      display:block;
+      width:450px;
+      margin: -50px 5px 20px 70px;
+      word-break:break-all;
+    }
+    .comment-time{
+      float:right;
+      margin-right: 20px;
+      font-size:xx-small;
+      color:$green;
+    }
+  }
+}
+
+.comment-form{
+  margin-top: 50px;
+  .comment-form-body{
+    width:400px;
+    height:200px;
+  }
+}
+
+tags{
+  span{
+    display:block;
+    color:$purple;
+    margin:10px auto auto 5px;
+    font-size:xx-large;
+    font-weight:bolder;
+  }
+
+  .tags-tag{
+    margin-left:10px;
+    font-size:x-large;
+    a{
+      color:$blue;
+    }
+    color:$blue;
+  }
+}
+
+.tag-title{
+  display:block;
+  color:$purple;
+  margin:10px auto auto 5px;
+  font-size:xx-large;
+  font-weight:bolder;
+}

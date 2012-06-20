@@ -1,4 +1,22 @@
-<p>
-<%=comment.name%><span><%comment.created_at%></span><br />
-<%=comment.body%>
-</p>
+<comment>
+<div class="comment-main">
+<div class="comment-info">
+  <div class="comment-icon">
+    <%= gravatar_for comment.email%>
+  </div>
+<div class="comment-name"><%=comment.name%></div>
+</div>
+<div class="comment-body">
+  <div class="comment-content">
+      <%=comment.body%>
+  </div>
+  <br />
+  <span class="comment-time"><%= format_date comment.created_at%></span><br />
+</div>
+<% if admin?%>
+  <%= link_to 'delete',[comment.post,comment],method: :delete,confirm: "You sure?",class:"comment-delete"%>
+<% end%>
+</div>
+<br />
+<hr />
+</comment>

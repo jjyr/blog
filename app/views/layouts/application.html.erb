@@ -6,15 +6,18 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="body-style">
 <%= render 'layouts/header'%>
 
 <div class="container">
-  <div class="container-fluid">
-    <div class="span8">
-      <%= yield %>
+  <% flash.each do |key,value|%>
+    <%=content_tag :div,value, class: "alert alert-#{key}"%>
+  <% end%>
+  <div id="main" class="row">
+    <div class="content span8">
+      <%=yield %>
     </div>
-    <div class="span2">
+    <div class="span3 offset1">
       <%= render 'layouts/info' %>
     </div>
   </div>

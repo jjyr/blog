@@ -1,5 +1,6 @@
 <% @tags = Tag.top 10 %>
 <h3>Top 10 tags</h3>
+<hr />
 <% if @tags.any? %>
 <ul>
   <% @tags.each do |tag|%>

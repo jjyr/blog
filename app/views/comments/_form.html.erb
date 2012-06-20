@@ -1,3 +1,4 @@
+<div class="comment-form">
 <% if @comment && @comment.errors.any?%>
   <div class="alert alert-error">
     <ul>
@@ -14,7 +15,8 @@
   <%= f.text_field :email %><br />
   <p>
   <%= f.label :body,'评论:'%><br />
-  <%= f.text_area :body%>
+  <%= f.text_area :body,class: "comment-form-body"%>
   </p>
   <%= f.submit%>
 <% end%>
+</div>
