@@ -28,6 +28,8 @@ end
 
 group :production do
   gem 'execjs'
+  gem 'therubyracer'
+
   gem 'pg','0.12.2'
 end
 
