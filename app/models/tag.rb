@@ -6,7 +6,7 @@ class Tag < ActiveRecord::Base
   validates :name,length: 1..10
 
   def self.tags
-    select("distinct name,count(tags.name)").group("id").order "count(tags.name) DESC"
+    select("distinct name,count(tags.name)").order("count(tags.name) DESC").group "tags.name"
   end
 
   def self.find_tags_by_name name
