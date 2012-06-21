@@ -1,4 +1,4 @@
-source 'http://ruby.taobao.org'
+source 'https://rubygems.org'
 
 gem 'bootstrap-sass','2.0.0'
 gem 'bcrypt-ruby','3.0.1'
