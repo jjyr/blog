@@ -1,6 +1,6 @@
 <li>
   <span class="post-title"><%= link_to post.title,post %></span>
-  <p class="post-body"><%= truncate post.body,length: 100 %></p>
+  <p class="post-body"><%= truncate post.body,length: 200 %></p>
   <p class="date"><%=format_date post.created_at%></p>
   <% if admin? %>
     <span><%= link_to 'Edit', edit_post_path(post) %></span>
