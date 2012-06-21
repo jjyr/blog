@@ -7,5 +7,5 @@ class Comment < ActiveRecord::Base
   validates :email,presence: true,format: {with: VALID_EMAIL_REGEX}
   validates :body,presence: true,length: 1..200
 
-  default_scope order("created_at DESC")
+  default_scope order("created_at")
 end

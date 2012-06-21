@@ -8,4 +8,9 @@ module CommentsHelper
     gravatar_url = gravatar_url_for email,opt
     link_to image_tag(gravatar_url,height: opt[:size],width: opt[:size],alt: "Icon"),"http://gravatar.com/",class: "thumbnail"
   end
+
+  def comment_number
+    @comment_number = 0 if @comment_number.nil?
+    "\##{@comment_number += 1}"
+  end
 end

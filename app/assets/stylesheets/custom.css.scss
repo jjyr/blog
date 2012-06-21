@@ -118,6 +118,10 @@ comment{
       color:$orange;
       font-size:xx-small;
       float:left;
+
+      a{
+        color:$orange;
+      }
     }
   }
 
@@ -128,6 +132,7 @@ comment{
       margin: -50px 5px 20px 70px;
       word-break:break-all;
     }
+
     .comment-time{
       float:right;
       margin-right: 20px;
@@ -135,6 +140,13 @@ comment{
       color:$green;
     }
   }
+}
+
+.comment-number{
+  margin-top:-50px;
+  margin-right:20px;
+  color:$purple;
+  float:right;  
 }
 
 .comment-form{

@@ -4,9 +4,17 @@
   <div class="comment-icon">
     <%= gravatar_for comment.email%>
   </div>
-<div class="comment-name"><%=comment.name%></div>
+<div class="comment-name">
+  <% if admin? %>
+    <%= link_to comment.name,"mail-to:#{comment.email}"%>
+  <% else %>
+    <%=comment.name%>
+  <% end%>
+</div>
 </div>
 <div class="comment-body">
+  <span class="comment-number"><%=comment_number%></span>
+  <br />
   <div class="comment-content">
       <%=comment.body%>
   </div>
