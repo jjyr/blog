@@ -10,7 +10,8 @@ gem 'rails', '3.2.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-  gem 'sqlite3'
+  gem 'pg','0.12.2'
+  #gem 'sqlite3'
 end
 
 gem 'rails_kindeditor','~> 0.3.0'

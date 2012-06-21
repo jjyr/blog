@@ -5,11 +5,11 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find_by_id params[:post_id]
-    unless @post
-      redirect_to posts_path
-      return
-    end
     @comment = @post.comments.build params[:comment]
+
+    @comment.toggle :by_admin if admin?
+    @comment.ip = request.remote_ip
+
     if @comment.save
       redirect_to @post
     else

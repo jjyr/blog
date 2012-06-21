@@ -1,5 +1,5 @@
 <comment>
-<div class="comment-main">
+<div class="comment-main<%= " comment-admin" if comment.by_admin? %>">
 <div class="comment-info">
   <div class="comment-icon">
     <%= gravatar_for comment.email%>
