@@ -8,7 +8,7 @@
 </div>
 
 <div class="post-body">
-  <%= @post.body %>
+  <%= raw @post.body %>
 </div>
 <span class="date"><%=format_date @post.created_at%></span>
 <% if admin? %>
@@ -19,7 +19,6 @@
 <hr />
 <%=render @comments%>
 <p>
-  <%= will_paginate @comments%>
 </p>
 <%=render 'comments/form'%>
 

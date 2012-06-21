@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.paginate page: params[:page]
+    @comments = @post.comments.all
   end
 
   # GET /posts/new

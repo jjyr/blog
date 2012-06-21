@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @post
     else
-      @comments = @post.comments.paginate page: params[:page]
+      @comments = @post.comments.all
       render 'posts/show'
     end
   end
