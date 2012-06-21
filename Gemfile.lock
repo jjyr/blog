@@ -1,5 +1,5 @@
 GEM
-  remote: http://ruby.taobao.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (3.2.3)
       actionpack (= 3.2.3)
@@ -122,6 +122,7 @@ DEPENDENCIES
   bootstrap-sass (= 2.0.0)
   bootstrap-will_paginate (= 0.0.5)
   coffee-rails (~> 3.2.1)
+  execjs
   jquery-rails
   pg (= 0.12.2)
   rails (= 3.2.3)
