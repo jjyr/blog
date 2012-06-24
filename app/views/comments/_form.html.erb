@@ -8,7 +8,7 @@
     <ul>
   </div>
 <% end%>
-<%= form_for [@post,@post.comments.build] do |f| %>
+<%= form_for [@post,@comment || @post.comments.build] do |f| %>
   <%= f.label :name,'昵称:' %>
   <% if admin? %>
     <%= f.text_field :name,value: current_user.name %>

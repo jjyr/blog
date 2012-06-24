@@ -20,4 +20,24 @@ class Tag < ActiveRecord::Base
   def tag_count
     Tag.find_tags_by_name(name).count
   end
+
+  def self.add_tags post,tags
+    split_tags(tags).each do |tag|
+      post.tags.create name: tag
+    end
+  end
+
+  def self.update_tags post,tags
+    tags = split_tags(tags).map do |tag|
+      post.tags.build name: tag
+    end
+    old_tags = @post.tags.all
+    (old_tags - tags).each &:destroy
+    (tags - old_tags).each &:save
+  end
+
+  private
+    def self.split_tags tags
+      tags.split TAGS_REGEX
+    end
 end
