@@ -41,7 +41,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         if tags = params[:tags]
-          Tag.add_tags @post,tags
+          add_tags @post,tags
         end
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
       else
