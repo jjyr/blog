@@ -1,1 +1,3 @@
-This is a simple blog.
+A simple blog.
+
+link http://ruby-tips.herokuapp.com
