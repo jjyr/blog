@@ -12,7 +12,5 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
-/test/*.*
+/test
 /tmp
-#other
-*.tmp
