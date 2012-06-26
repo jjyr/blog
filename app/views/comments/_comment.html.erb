@@ -1,5 +1,5 @@
 <comment>
-<div class="comment-main<%= " comment-admin" if comment.by_admin? %>">
+<div class="comment-main<%= " comment-admin" if comment.by_admin? %>" id="c<%= comment_num = comment_number%>">
 <div class="comment-info">
   <div class="comment-icon">
     <%= gravatar_for comment.email%>
@@ -13,10 +13,10 @@
 </div>
 </div>
 <div class="comment-body">
-  <span class="comment-number"><%=comment_number%></span>
+  <span class="comment-number">#<%=comment_num %></span>
   <br />
   <div class="comment-content">
-      <%=comment.body%>
+      <%= sanitize comment.body%>
   </div>
   <br />
   <span class="comment-time"><%= format_date comment.created_at%></span><br />

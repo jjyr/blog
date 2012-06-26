@@ -11,6 +11,6 @@ module CommentsHelper
 
   def comment_number
     @comment_number = 0 if @comment_number.nil?
-    "\##{@comment_number += 1}"
+    @comment_number += 1
   end
 end

@@ -19,4 +19,12 @@ module ApplicationHelper
   def format_date date
     date.localtime.in_time_zone(ApplicationHelper::TIME_ZONE).strftime "%Y-%m-%d %H:%M:%S"
   end
+
+  def admin_user
+    @admin_user ||= User.first
+  end
+
+  def transform_comment! comment
+    comment.gsub! /#(\d+)(\s+?)/, "<a href=\"\#c\\1\">#\\1</a>\\2"
+  end
 end
