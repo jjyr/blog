@@ -3,21 +3,26 @@ module SessionsHelper
     @current_user = user
   end
 
-  def sign_in user
-    session[:current_user] = user
+  def sign_in user,remember
+    if remember
+      cookies.permanent[:authentication_token] = user.authentication_token
+    else
+      cookies[:authentication_token] = user.authentication_token
+    end
     self.current_user = user
   end
 
   def current_user
-    @current_user ||= session[:current_user]
+    @current_user ||= User.find_by_authentication_token(cookies[:authentication_token])
   end
 
   def admin?
-    session.has_key? :current_user
+    current_user
   end
 
   def logout
-    session.delete :current_user
+    self.current_user = nil
+    cookies.delete :authentication_token
   end
 
 

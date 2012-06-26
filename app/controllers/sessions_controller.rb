@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     end
     @user = User.find_by_email params[:session][:email]
     if @user && @user.authenticate(params[:session][:password])
-      sign_in @user
+      sign_in @user,params[:remember]
       flash["success"] = "login success"
       redirect_to root_path
     else
