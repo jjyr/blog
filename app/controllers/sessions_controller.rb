@@ -1,3 +1,4 @@
+#coding:utf-8
 class SessionsController < ApplicationController
 
   before_filter :check_login,only: [:new,:create]
@@ -7,6 +8,11 @@ class SessionsController < ApplicationController
   end
 
   def create
+    unless verify_recaptcha
+      flash.now["error"] = "验证码错误"
+      render :new
+      return
+    end
     @user = User.find_by_email params[:session][:email]
     if @user && @user.authenticate(params[:session][:password])
       sign_in @user
