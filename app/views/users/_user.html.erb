@@ -1,0 +1,9 @@
+<admin>
+<h3>Blog info</h3>
+<hr />
+<div class="admin-icon" ><%=gravatar_for admin_user.email,size:80 %></div>
+<div class="admin-info">
+  <h3 class="admin-name"><%= link_to admin_user.name, "mailto:#{admin_user.email}"%></h3><br />
+  <span class="admin-link"><a href="http://github.com/jjyr">My github</a></span>
+</div>
+</admin>

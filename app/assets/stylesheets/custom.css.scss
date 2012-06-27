@@ -16,6 +16,7 @@
   }
 
   .statistic{
+    margin-top:50px;
     ul{
       li{
         margin-bottom:7px;
@@ -191,5 +192,35 @@ tags{
   background:#DFFFD4;
   .comment-number{
     color:red;
+  }
+}
+
+.admininfo{
+  display:block;
+  height:160px;
+}
+
+admin{
+
+  h3{
+    color:$yellow;
+    margin-top:5px;
+    margin-bottom:-10px;
+  }
+
+  .admin-icon{
+    height:80px;
+    width:80px;
+    margin-left:5px;
+  }
+
+  .admin-info{
+    margin: -75px 5px 0px 100px;
+
+    .admin-name{
+      a{
+        color:$purple;
+      }
+    }
   }
 }
