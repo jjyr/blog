@@ -6,7 +6,7 @@
   </div>
 <div class="comment-name">
   <% if admin? %>
-    <%= link_to comment.name,"mail-to:#{comment.email}"%>
+    <%= link_to comment.name,"mailto:#{comment.email}"%>
   <% else %>
     <%=comment.name%>
   <% end%>
