@@ -14,9 +14,10 @@ module PostsHelper
 
   def update_tags post,tags
     tags = split_tags(tags).map do |tag|
-      post.tags.create name: tag
+      post.tags.build name: tag
     end
     @post.tags = tags
+    @post.save!
   end
 
   alias add_tags update_tags
