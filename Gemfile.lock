@@ -37,6 +37,7 @@ GEM
     carrierwave (0.6.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    coderay (1.0.7)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -94,6 +95,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     recaptcha (0.3.4)
+    redcarpet (2.1.1)
     sass (3.1.19)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -124,6 +126,7 @@ DEPENDENCIES
   bcrypt-ruby (= 3.0.1)
   bootstrap-sass (= 2.0.0)
   bootstrap-will_paginate (= 0.0.5)
+  coderay
   coffee-rails (~> 3.2.1)
   execjs
   jquery-rails
@@ -131,6 +134,7 @@ DEPENDENCIES
   rails (= 3.2.3)
   rails_kindeditor (~> 0.3.0)
   recaptcha
+  redcarpet
   sass-rails (~> 3.2.3)
   therubyracer
   uglifier (>= 1.0.3)

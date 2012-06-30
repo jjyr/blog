@@ -24,8 +24,10 @@
   <% end%>
   <br />
   <p>
-  <%= f.label :body,'评论:'%><br />
-  <%= f.text_area :body,class: "comment-form-body"%>
+  <%= f.label :body,'评论:'%>
+  *支持markdown格式
+  <br/>
+  <%= f.text_area :body,class: "comment-form-body", id: "comment_form_body"%>
   </p>
   <%= f.submit%>
 <% end%>

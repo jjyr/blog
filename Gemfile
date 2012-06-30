@@ -6,6 +6,8 @@ gem 'will_paginate','3.0.3'
 gem 'bootstrap-will_paginate','0.0.5'
 gem 'rails', '3.2.3'
 gem 'recaptcha',require: "recaptcha/rails"
+gem 'redcarpet'
+gem 'coderay'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

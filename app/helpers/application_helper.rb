@@ -6,7 +6,7 @@ module ApplicationHelper
 
   def full_title title = nil
     unless title.blank?
-      "Ruby-Tips | #{title}"
+      "#{title} | Ruby-Tips"
     else
       "Ruby-Tips"
     end
@@ -24,7 +24,15 @@ module ApplicationHelper
     @admin_user ||= User.first
   end
 
-  def transform_comment! comment
-    comment.gsub! /#(\d+)(\s+?)/, "<a href=\"\#c\\1\">#\\1</a>\\2"
+  def markdown text
+    options = {autolink: true,space_after_headers: true,fenced_code_blocks: false,no_intra_emphasis: true,hard_wrap: true,strikethrough: true}
+    markdown = Redcarpet::Markdown.new HTMLwithCodeRay,options
+    markdown.render(text).html_safe
+  end
+
+  class HTMLwithCodeRay < Redcarpet::Render::HTML
+    def block_code code,language
+      CodeRay.scan(code,language).div tab_width: 2
+    end
   end
 end

@@ -4,7 +4,7 @@
   <div class="comment-icon">
     <%= gravatar_for comment.email%>
   </div>
-<div class="comment-name">
+<div class="comment-name" id="cname<%=comment_num%>" cname="<%=comment.name%>">
   <% if admin? %>
     <%= link_to comment.name,"mailto:#{comment.email}"%>
   <% else %>
@@ -13,10 +13,11 @@
 </div>
 </div>
 <div class="comment-body">
+  <a class="comment-ref" href="javascript:ref_comment(<%=comment_num%>)">引用</a>
   <span class="comment-number">#<%=comment_num %></span>
   <br />
-  <div class="comment-content">
-      <%= sanitize comment.body%>
+  <div class="comment-content" id="cbody<%=comment_num%>">
+      <%= markdown comment.body%>
   </div>
   <br />
   <span class="comment-time"><%= format_date comment.created_at%></span><br />

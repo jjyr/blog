@@ -153,6 +153,13 @@ comment{
   float:right;  
 }
 
+.comment-ref{
+  margin-top:-50px;
+  margin-right:60px;
+  float:right;
+  font-size:smaller;
+}
+
 .comment-form{
   margin-top: 50px;
   .comment-form-body{
@@ -222,5 +229,11 @@ admin{
         color:$purple;
       }
     }
+  }
+}
+
+.post-tag{
+  &:hover{
+    background:white;
   }
 }

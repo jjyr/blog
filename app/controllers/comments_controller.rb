@@ -10,8 +10,6 @@ class CommentsController < ApplicationController
     @comment.toggle :by_admin if admin?
     @comment.ip = request.remote_ip
 
-    transform_comment! @comment.body
-
     if @comment.save
       redirect_to @post
     else
