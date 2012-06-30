@@ -1,5 +1,5 @@
 module PostsHelper
-  TAGS_REGEX = /[\s+,]/
+  TAGS_REGEX = /[\s,]+/
 
   def show_tags post
     if tags = post.tags
@@ -17,7 +17,7 @@ module PostsHelper
       post.tags.build name: tag
     end
     @post.tags = tags
-    @post.save!
+    @post.save
   end
 
   alias add_tags update_tags
