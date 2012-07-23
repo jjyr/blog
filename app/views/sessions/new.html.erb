@@ -4,7 +4,8 @@
   <%= f.text_field :email %><br />
   <%= f.label :password %>
   <%= f.password_field :password %><br />
-  <input name="remember" type="checkbox" />记住登录<br/>
+  <%= check_box_tag :remember%>
+  <%= label_tag :remember,"记住登录" %><br/>
   <%= recaptcha_tags ssl: true  %>
   <%= f.submit "登录"%>
 <% end%>

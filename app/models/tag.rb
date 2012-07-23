@@ -14,7 +14,7 @@ class Tag < ActiveRecord::Base
   end
 
   def self.top n
-    tags.take n
+    tags.limit n
   end
 
   def tag_count
