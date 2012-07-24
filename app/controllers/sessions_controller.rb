@@ -1,6 +1,8 @@
 #coding:utf-8
 class SessionsController < ApplicationController
 
+  force_ssl
+
   before_filter :check_login,only: [:new,:create]
   before_filter :check_role,only: :destroy
 

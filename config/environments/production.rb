@@ -66,5 +66,5 @@ Blog::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   #use ssl
-  config.force_ssl = true
+  #config.force_ssl = true
 end
