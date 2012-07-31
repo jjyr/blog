@@ -1,5 +1,6 @@
-<div>
-  <detail>
+<%cache 'detail' do%>
+  <div>
+    <detail>
     <h3>统计</h3>
     <hr />
     <ul>
@@ -7,5 +8,6 @@
       <li>回复数 <%= Comment.all.count%></li>
       <li>Tags <%= tags_count%></li>
     </ul>
-  </detail>
-</div>
+    </detail>
+  </div>
+<%end%>

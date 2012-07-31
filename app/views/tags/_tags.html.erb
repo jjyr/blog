@@ -1,12 +1,14 @@
-<% @tags = Tag.top 10 %>
-<h3>Top 10 tags</h3>
-<hr />
-<% if @tags.any? %>
-<ul>
-  <% @tags.each do |tag|%>
-    <li>
-      <%=link_to tag.name,tag_path(tag.name)%>(<%=tag.tag_count%>)
-    </li>
+<%cache 'tags#top' do%>
+  <% @tags = Tag.top 10 %>
+  <h3>Top 10 tags</h3>
+  <hr />
+  <% if @tags.any? %>
+    <ul>
+      <% @tags.each do |tag|%>
+        <li>
+        <%=link_to tag.name,tag_path(tag.name)%>(<%=tag.tag_count%>)
+        </li>
+      <% end%>
+    </ul>
   <% end%>
-</ul>
-<% end%>
+<%end%>

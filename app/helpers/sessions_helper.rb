@@ -17,7 +17,7 @@ module SessionsHelper
   end
 
   def admin?
-    current_user
+    !current_user.nil?
   end
 
   def logout

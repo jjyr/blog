@@ -1,17 +1,17 @@
 <li>
-  <span class="post-title"><%= link_to post.title,post %></span>
-  <p class="post-body"><%= truncate strip_tags(post.body),length: 200 %></p>
-  <p class="date"><%=format_date post.created_at%></p>
-  <% if admin? %>
-    <span><%= link_to 'Edit', edit_post_path(post) %></span>
-    <span><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></span>
-  <% end%>
+<span class="post-title"><%= link_to post.title,post %></span>
+<p class="post-body"><%= truncate strip_tags(post.body),length: 200 %></p>
+<p class="date"><%=format_date post.created_at%></p>
+<% if admin? %>
+  <span><%= link_to 'Edit', edit_post_path(post) %></span>
+  <span><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></span>
+<% end%>
 </li>
 <% if post.tags.any? %>
   <div class="post-tags">
-  <% post.tags.each do |tag|%>
-    <%= link_to content_tag(:span,tag.name,class: "label"),tag_path(tag.name),class: "post-tag"%>
-  <% end%>
+    <% post.tags.each do |tag|%>
+      <%= link_to content_tag(:span,tag.name,class: "label"),tag_path(tag.name),class: "post-tag"%>
+    <% end%>
   </div>
 <% end %>
 <br />

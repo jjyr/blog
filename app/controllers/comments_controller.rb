@@ -3,6 +3,8 @@ class CommentsController < ApplicationController
 
   before_filter :check_role,only: [:destroy]
 
+  cache_sweeper :comment_sweeper
+
   def create
     @post = Post.find_by_id params[:post_id]
     @comment = @post.comments.build params[:comment]

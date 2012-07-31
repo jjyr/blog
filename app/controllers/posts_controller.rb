@@ -1,36 +1,34 @@
 class PostsController < ApplicationController
 
   before_filter :check_role,only: [:new,:edit,:create,:update,:destroy]
+  cache_sweeper :post_sweeper
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.paginate page: params[:page]
-    respond_to do |format|
-      format.html # index.html.erb
+    unless fragment_exist? "posts#index#{admin?}",page: params[:page] || 1
+      @posts = Post.paginate page: params[:page]
     end
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find(params[:id])
-    @comments = @post.comments.all
+    unless fragment_exist?("posts#show#{params[:id]}") && fragment_exist?("posts#show#comments#{params[:id]}")
+      @post = Post.find(params[:id]) 
+      @comments = @post.comments.all
+    end
   end
 
   # GET /posts/new
   # GET /posts/new.json
   def new
     @post = Post.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-    end
   end
 
   # GET /posts/1/edit
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:id]) unless fragment_exist? "posts#edit#{params[:id]}"
   end
 
   # POST /posts

@@ -1,16 +1,17 @@
 <div>
-<posts>
-  <ul>
-    <%=render @posts%>
-  </ul>
-</posts>
-<p>
- <%=will_paginate%>
-</p>
+  <%cache "posts#index#{admin?}",page: params[:page] || 1 do%>
+    <posts>
+    <ul>
+      <%=render @posts%>
+    </ul>
+    </posts>
+    <p>
+    <%=will_paginate%>
+    </p>
+    <br />
+  <%end%>
 
-<br />
-
-<% if admin? %>
-  <%= link_to 'New Post', new_post_path %>
-<% end%>
+  <% if admin? %>
+    <%= link_to 'New Post', new_post_path %>
+  <% end%>
 </div>

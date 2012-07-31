@@ -1,24 +1,28 @@
-<%provide :title,@post.title%>
+<%cache "posts#show#{params[:id]}#{admin?}" do%>
+  <%provide :title,@post.title%>
 
-<post>
-<div class="post-title">
-  <h1>
-    <%= @post.title %>
-  </h1>
-</div>
+  <post>
+  <div class="post-title">
+    <h1>
+      <%= @post.title %>
+    </h1>
+  </div>
 
-<div class="post-body">
-  <%= raw @post.body %>
-</div>
-<span class="date"><%=format_date @post.created_at%></span>
+  <div class="post-body">
+    <%= raw @post.body %>
+  </div>
+  <span class="date"><%=format_date @post.created_at%></span>
+<%end%>
 <% if admin? %>
   <%= link_to 'Edit', edit_post_path(@post) %>
+  <post>
 <% end %>
-<post>
 <br />
 <hr />
-<%=render @comments%>
-<p>
-</p>
-<%=render 'comments/form'%>
+<%cache "posts#show#comments#{params[:id]}#{admin?}" do%>
+  <%=render @comments%>
+  <p>
+  </p>
+  <%=render 'comments/form'%>
+<%end%>
 

@@ -1,10 +1,12 @@
-<%provide :title,"Tags"%>
-<tags>
-<div>
-  <span>Tags</span>
-  <p>
+<%cache 'tags#index',page: params[:page] || 1 do %>
+  <%provide :title,"Tags"%>
+  <tags>
+  <div>
+    <span>Tags</span>
+    <p>
     <%=render @tags%>
-  </p>
-</div>
-<tags>
-<%= will_paginate%>
+    </p>
+  </div>
+  <tags>
+  <%= will_paginate%>
+<%end%>
