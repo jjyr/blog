@@ -1,13 +1,15 @@
-<% provide(:title,tag_name = @tags.first.name)%>
-<div>
-<span class="tag-title"><%=tag_name%></span>
-<hr />
-<posts>
-  <ul>
-    <%= render @posts %>
-  </ul>
-</posts>
-</div>
-<p>
+<% provide(:title,tag_name = params[:id])%>
+<%cache "tags#show#{params[:id]}",page: params[:page] || 1 do%>
+  <div>
+    <span class="tag-title"><%=tag_name%></span>
+    <hr />
+    <posts>
+    <ul>
+      <%= render @posts %>
+    </ul>
+    </posts>
+  </div>
+  <p>
   <%=will_paginate%>
-</p>
+  </p>
+<%end%>

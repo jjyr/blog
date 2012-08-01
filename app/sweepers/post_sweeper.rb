@@ -25,7 +25,6 @@ class PostSweeper < ActionController::Caching::Sweeper
 
   private
   def expire_tags
-    expire_page controller: :tags,action: :index
     expire_fragment 'tags#top'
     expire_fragment 'tags#index'
   end

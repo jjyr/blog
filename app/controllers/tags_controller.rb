@@ -1,6 +1,4 @@
 class TagsController < ApplicationController
-  caches_page :index
-  caches_page :show
 
   def index
     unless fragment_exist? 'tags#index',page: params[:page] || 1
@@ -9,9 +7,9 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tags = Tag.find_tags_by_name(params[:id]).includes(:post).paginate page: params[:page]
-    logger.info "#" * 200 + @tags.inspect
-    @posts = @tags.map &:post
-    logger.info "*" * 200 + @posts.inspect
+    unless fragment_exist? "tags#show#{params[:id]}",page: params[:page] || 1
+      @tags = Tag.find_tags_by_name(params[:id]).includes(:post).paginate page: params[:page]
+      @posts = @tags.map &:post
+    end
   end
 end
