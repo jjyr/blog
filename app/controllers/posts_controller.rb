@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   before_filter :check_role,only: [:new,:edit,:create,:update,:destroy]
-  cache_sweeper :post_sweeper
+  cache_sweeper :post_sweeper,:tag_sweeper
 
   # GET /posts
   # GET /posts.json
@@ -36,15 +36,13 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
 
-    respond_to do |format|
-      if @post.save
-        if tags = params[:tags]
-          add_tags @post,tags
-        end
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-      else
-        format.html { render action: "new" }
+    if @post.save
+      if tags = params[:tags]
+        add_tags @post,tags
       end
+      redirect_to @post, notice: 'Post was successfully created.'
+    else
+      render action: "new"
     end
   end
 
@@ -52,15 +50,13 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
-    respond_to do |format|
-      if @post.update_attributes(params[:post])
-        if tags = params[:tags]
-          update_tags @post,tags
-        end
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-      else
-        format.html { render action: "edit" }
+    if @post.update_attributes(params[:post])
+      if tags = params[:tags]
+        update_tags @post,tags
       end
+      redirect_to @post, notice: 'Post was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 
@@ -70,9 +66,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
-    respond_to do |format|
-      format.html { redirect_to posts_url }
-      format.json { head :no_content }
-    end
+    redirect_to posts_url
   end
 end
