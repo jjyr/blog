@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120626025652) do
+ActiveRecord::Schema.define(:version => 20120801012448) do
 
   create_table "comments", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20120626025652) do
     t.boolean  "by_admin",   :default => false
   end
 
+  add_index "comments", ["created_at"], :name => "index_comments_on_created_at"
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "posts", :force => true do |t|
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20120626025652) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "posts", ["created_at"], :name => "index_posts_on_created_at"
   add_index "posts", ["title"], :name => "index_posts_on_title"
 
   create_table "tags", :force => true do |t|
