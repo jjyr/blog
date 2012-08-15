@@ -1,8 +1,6 @@
 #coding:utf-8
 class SessionsController < ApplicationController
 
-  force_ssl
-
   before_filter :check_login,only: [:new,:create]
   before_filter :check_role,only: :destroy
 
@@ -17,6 +15,7 @@ class SessionsController < ApplicationController
     end
     @user = User.find_by_email params[:session][:email]
     if @user && @user.authenticate(params[:session][:password])
+      reset_session
       sign_in @user,params[:remember]
       flash["success"] = "login success"
       redirect_to root_path
