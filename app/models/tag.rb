@@ -3,7 +3,6 @@ class Tag < ActiveRecord::Base
   attr_accessible :name
 
   validates :name,presence: true
-  validates :name,length: 1..10
 
   def self.tags
     select("distinct name,count(tags.name)").order("count(tags.name) DESC").group "tags.name"
