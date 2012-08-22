@@ -1,4 +1,5 @@
 <li>
+<span class="replies-count"><%=pluralize post.comments.count,'reply'%></span>
 <span class="post-title"><%= link_to post.title,post %></span>
 <p class="post-body"><%= truncate strip_tags(post.body),length: 200 %></p>
 <p class="date"><%=format_date post.created_at%></p>

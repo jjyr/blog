@@ -237,3 +237,11 @@ admin{
     background:white;
   }
 }
+
+.replies-count{
+  float: right;
+  color:$grayLight;
+  font-size:9px;
+  z-index:1;
+  margin-right:9px;
+}

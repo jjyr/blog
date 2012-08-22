@@ -14,6 +14,7 @@ gem 'coderay'
 
 group :development do
   gem 'pg','0.12.2'
+  gem 'pry'
   #gem 'sqlite3'
 end
 
