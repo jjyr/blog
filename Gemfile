@@ -36,6 +36,7 @@ group :production do
   gem 'therubyracer'
 
   gem 'pg','0.12.2'
+  gem 'newrelic_rpm'
 end
 
 gem 'jquery-rails'
