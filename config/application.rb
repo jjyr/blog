@@ -62,8 +62,8 @@ module Blog
     ActionMailer::Base.smtp_settings = {
       address: "smtp.gmail.com",
       port: 587,
-      user_name: 'caniceric@gmail.com',
-      password: 'j1992113',
+      user_name: 'name@gmail.com',
+      password: 'password',
       authentication: :plain
     }
   end
