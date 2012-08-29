@@ -56,5 +56,15 @@ module Blog
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    #mailer
+    config.action_mailer.delivery_method = :smtp
+    ActionMailer::Base.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      user_name: 'caniceric@gmail.com',
+      password: 'j1992113',
+      authentication: :plain
+    }
   end
 end
