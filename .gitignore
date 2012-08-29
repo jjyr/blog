@@ -15,4 +15,4 @@
 /test
 /tmp
 tags
-/**/*.swp
+*.swp

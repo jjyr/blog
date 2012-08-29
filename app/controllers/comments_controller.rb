@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
     @comment.ip = request.remote_ip
 
     if @comment.save
+      CommentNotify.new_comment(@comment) unless @comment.by_admin?
       redirect_to @post
     else
       @comments = @post.comments.all

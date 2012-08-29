@@ -1,0 +1,18 @@
+<div class="comment-main">
+  <div class="comment-info">
+    <div class="comment-icon">
+      <%= gravatar_for @comment.email%>
+    </div>
+    <div class="comment-name">
+      <%= link_to @comment.name,"mailto:#{@comment.email}"%>
+    </div>
+  </div>
+  <div class="comment-body">
+    <div class="comment-content">
+      <%= markdown @comment.body%>
+    </div>
+    <br />
+    <span class="comment-time"><%= format_date @comment.created_at%></span><br />
+  </div>
+</div>
+<br />
